@@ -1,0 +1,71 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "data": [
+            "{",
+            "\ttitles: {",
+            "\t\t0: 'Fill up to 5 domains',",
+            "\t\t1: 'Select keywords'",
+            "\t}",
+            "}",
+            ""
+        ],
+        "designer|userAlias": "keywordsdialog",
+        "designer|userClassName": "keywordsDialogViewModel"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "data": "object"
+    },
+    "designerId": "9f0f8e9e-82ca-4045-a560-05a5dcca2483",
+    "cn": [
+        {
+            "type": "Ext.app.bind.Formula",
+            "reference": {
+                "name": "formulas",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "dialogTitle"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyFormula",
+            "designerId": "94e138c4-97ad-45dc-bad9-f11c3b4f5134",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "get"
+                        ],
+                        "fn": "get",
+                        "implHandler": [
+                            "return get('titles')[get('cards.activeItemIndex')];"
+                        ]
+                    },
+                    "configAlternates": {
+                        "designer|params": "typedarray",
+                        "fn": "string",
+                        "implHandler": "code"
+                    },
+                    "name": "get",
+                    "designerId": "02a5be2f-4129-4e45-a750-3964812914b6"
+                }
+            ]
+        }
+    ]
+}

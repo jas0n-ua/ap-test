@@ -1,0 +1,487 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "index",
+        "designer|userClassName": "IndexViewController",
+        "preferences": [
+            "null",
+            ""
+        ]
+    },
+    "configAlternates": {
+        "preferences": "object",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "statics": "object"
+    },
+    "designerId": "d5588da3-9711-400a-9d60-324feed6d4c8",
+    "configMeta": {
+        "preferences": {
+            "bindDeep": true
+        }
+    },
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "preferences",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "statics",
+            "type": "string"
+        }
+    ],
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "initialize",
+                "implHandler": [
+                    "this.loadPreferences();"
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "initialize",
+            "designerId": "c56bba50-733f-4d2b-9440-4b604e6fc15f"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "loadPreferences",
+                "implHandler": [
+                    "let view = this.view;",
+                    "",
+                    "view.setMasked({xtype: 'loadmask'});",
+                    "",
+                    "Ext.Ajax.request({",
+                    "",
+                    "    method: 'post',",
+                    "    url: 'https://cors-anywhere.herokuapp.com/https://spyserp.com/panel/apiclient',",
+                    "\t//url: 'data/1.json',",
+                    "",
+                    "    jsonData: {method: \"projectCustom\", domain: \"lenta.ru\", withSettings: 1}",
+                    "",
+                    "",
+                    "}).then((response) => {",
+                    "",
+                    "    let data = Ext.decode(response.responseText);",
+                    "    console.dir(data);",
+                    "",
+                    "    let keywordsStore = Ext.data.StoreManager.lookup('keywords');",
+                    "    keywordsStore.loadRawData(data);",
+                    "",
+                    "\tlet searchEngineSettingsStore = Ext.data.StoreManager.lookup('searchEngineSettings');",
+                    "    searchEngineSettingsStore.loadRawData(Ext.Object.getValues(data.engines));",
+                    "",
+                    "\t// create store for predefinedSettings keys",
+                    "\tExt.Object.each(data.predefinedSettings, (key, value) => {",
+                    "",
+                    "\t\tif (value.long)",
+                    "\t\t{",
+                    "\t\t\tExt.create({",
+                    "\t\t\t\txclass: 'Ext.data.JsonStore',",
+                    "\t\t\t\tstoreId: 'searchEngineSettingsDictionary_' + key,",
+                    "",
+                    "\t\t\t\tfields: ['id', 'name'],",
+                    "",
+                    "\t\t\t\tdata: value.values,",
+                    "\t\t\t\t_long: value.long,",
+                    "",
+                    "\t\t\t\tproxy: {",
+                    "\t\t\t\t\ttype: 'myajax',",
+                    "",
+                    "\t\t\t\t\turl: 'https://cors-anywhere.herokuapp.com/https://spyserp.com/panel/apiclient',",
+                    "",
+                    "\t\t\t\t\tactionMethods: {",
+                    "\t\t\t\t\t\tcreate: 'POST',",
+                    "\t\t\t\t\t\tread: 'POST',",
+                    "\t\t\t\t\t\tupdate: 'POST',",
+                    "\t\t\t\t\t\tdestroy: 'POST'",
+                    "\t\t\t\t\t},",
+                    "",
+                    "\t\t\t\t\tnoCache: false,",
+                    "\t\t\t\t\tparamsAsJson: true,",
+                    "",
+                    "\t\t\t\t\textraParams: {",
+                    "\t\t\t\t\t\tmethod: 'searchEnginesLoadSettings',",
+                    "\t\t\t\t\t\tkey: key",
+                    "\t\t\t\t\t},",
+                    "",
+                    "\t\t\t\t\treader: {",
+                    "\t\t\t\t\t\ttype: 'json',",
+                    "",
+                    "\t\t\t\t\t\ttransform: (data) => {",
+                    "",
+                    "\t\t\t\t\t\t\tif (Ext.isArray(data))",
+                    "\t\t\t\t\t\t\t\treturn data;",
+                    "",
+                    "\t\t\t\t\t\t\tlet res = [];",
+                    "",
+                    "\t\t\t\t\t\t\tExt.Object.each(data, (key, value) => {",
+                    "\t\t\t\t\t\t\t\tres.push([key, value]);",
+                    "\t\t\t\t\t\t\t});",
+                    "",
+                    "\t\t\t\t\t\t\treturn res;",
+                    "\t\t\t\t\t\t},",
+                    "",
+                    "\t\t\t\t\t}",
+                    "\t\t\t\t}",
+                    "\t\t\t});",
+                    "\t\t}",
+                    "\t\telse",
+                    "\t\t{",
+                    "\t\t\tExt.create({",
+                    "\t\t\t\txclass: 'Ext.data.ArrayStore',",
+                    "\t\t\t\tstoreId: 'searchEngineSettingsDictionary_' + key,",
+                    "",
+                    "\t\t\t\tfields: ['id', 'name'],",
+                    "\t\t\t\tdata: value.values,",
+                    "\t\t\t\t_long: value.long",
+                    "\t\t\t});",
+                    "\t\t}",
+                    "",
+                    "",
+                    "",
+                    "\t});",
+                    "",
+                    "\tlet searchEnginesStore = Ext.data.StoreManager.lookup('searchEngines');",
+                    "\tsearchEngineSettingsStore.each((searchEngineRec, i) => {",
+                    "",
+                    "\t\tif (i>1) return false;",
+                    "",
+                    "\t\tlet settingsKeys = searchEngineRec.get('settings');",
+                    "\t\tlet defaultSettings = searchEngineRec.get('defaultSettings');",
+                    "",
+                    "\t\tlet settings = {};",
+                    "\t\tlet infoValues = {};",
+                    "",
+                    "\t\tExt.Array.each(settingsKeys, (key) => {",
+                    "",
+                    "\t\t\tlet value = defaultSettings[key];",
+                    "",
+                    "\t\t\tsettings[key] = value;",
+                    "",
+                    "\t\t\tlet store = Ext.data.StoreManager.lookup('searchEngineSettingsDictionary_' + key);",
+                    "\t\t\t",
+                    "\t\t\tlet rec = store ? store.getById(value) : null;",
+                    "\t\t\tinfoValues[key] = rec ? rec.get('name') : value;",
+                    "",
+                    "\t\t});",
+                    "",
+                    "\t\tsearchEnginesStore.add({",
+                    "\t\t\tseId: searchEngineRec.get('id'),",
+                    "\t\t\tname: searchEngineRec.get('name'),",
+                    "\t\t\tinfo: Ext.Object.getValues(infoValues).join(', ').replace(/(,\\s)+/g, ', ').replace(/(,\\s)$/g, ''),",
+                    "\t\t\tsettings: settings",
+                    "\t\t});",
+                    "",
+                    "\t});",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "}).always(() => {",
+                    "",
+                    "    view.unmask();",
+                    "",
+                    "}).otherwise((reason) => {",
+                    "",
+                    "    console.log(reason);",
+                    "",
+                    "});",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "loadPreferences",
+            "designerId": "500a964b-8481-4831-8484-754a70467cd3"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button",
+                    "e"
+                ],
+                "fn": "onKeywordsImportFromFile",
+                "implHandler": [
+                    "Ext.Msg.alert('Not yet implemented');"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "onKeywordsImportFromFile",
+            "designerId": "b15bb2bf-d83a-4568-85da-40d42303769d"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button",
+                    "e"
+                ],
+                "fn": "onKeywordsAnalyzeCompetitors",
+                "implHandler": [
+                    "Ext.Viewport.add({xclass: 'MyApp.view.keywordsDialog'}).show();"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "onKeywordsAnalyzeCompetitors",
+            "designerId": "704580b0-9922-43dd-b9c5-49e8d4ad7a80"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "grid, info"
+                ],
+                "fn": "onKeywordsDelete",
+                "implHandler": [
+                    "info.record.store.remove(info.record);"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "onKeywordsDelete",
+            "designerId": "60ec32eb-074b-49fc-b020-47f486cb57ac"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button",
+                    "e"
+                ],
+                "fn": "onKeywordsEdit",
+                "implHandler": [
+                    "this.getViewModel().set('editMode', true);",
+                    "",
+                    "let editor = this.lookup('keywordsEditor');",
+                    "let grid = this.lookup('keywordsGrid');",
+                    "",
+                    "let keywords = [];",
+                    "grid.getStore().each((rec) => {",
+                    "\tkeywords.push(rec.get('keyword'));",
+                    "});",
+                    "",
+                    "editor.setValue(keywords.join('\\n'));"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "onKeywordsEdit",
+            "designerId": "7b05ba5c-ecf9-4daa-b7e8-f92d6f8b6e92"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button",
+                    "e"
+                ],
+                "fn": "onKeywordsSave",
+                "implHandler": [
+                    "this.getViewModel().set('editMode', false);",
+                    "",
+                    "let editor = this.lookup('keywordsEditor');",
+                    "let grid = this.lookup('keywordsGrid');",
+                    "",
+                    "let keywordsText = editor.getValue();",
+                    "editor.reset();",
+                    "",
+                    "let keywords = keywordsText.split('\\n');",
+                    "let store = grid.getStore();",
+                    "let newData = [];",
+                    "",
+                    "Ext.each(keywords, (keyword) => {",
+                    "",
+                    "\tkeyword = keyword.trim();",
+                    "",
+                    "\tif (!keyword.length)",
+                    "\t\treturn;",
+                    "",
+                    "\tlet rec = store.findRecord('keyword', keyword, 0, false, false, true);",
+                    "\tif (rec)",
+                    "\t\tnewData.push(rec.getData());",
+                    "\telse",
+                    "\t\tnewData.push({keyword: keyword, frequency: 0});",
+                    "});",
+                    "",
+                    "store.loadData(newData);"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "onKeywordsSave",
+            "designerId": "e334bb72-8f8a-40fe-928c-b0f610df1886"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button",
+                    "e"
+                ],
+                "fn": "onKeywordsCancel",
+                "implHandler": [
+                    "this.getViewModel().set('editMode', false);",
+                    "",
+                    "this.lookup('keywordsEditor').reset();"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "onKeywordsCancel",
+            "designerId": "677beb0e-7f54-4421-a822-4f98f60bf3a3"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button",
+                    "e"
+                ],
+                "fn": "onSearchEngineAdd",
+                "implHandler": [
+                    "let searchEnginesStore = Ext.data.StoreManager.lookup('searchEngines');",
+                    "if (searchEnginesStore.getCount() >= 10)",
+                    "\tExt.Msg.alert('Error', 'Only 10 search engines can be added');",
+                    "else",
+                    "\tExt.Viewport.add({xclass: 'MyApp.view.searchEngineDialog', title: 'Add Search Engine'}).show();"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "onSearchEngineAdd",
+            "designerId": "c4eb9e59-8244-4cc0-a2b7-5735b590b3c0"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "grid, info"
+                ],
+                "fn": "onSearchEngineEdit",
+                "implHandler": [
+                    "Ext.Viewport.add({xclass: 'MyApp.view.searchEngineDialog', title: 'Edit Search Engine', _record: info.record}).show();"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "onSearchEngineEdit",
+            "designerId": "a000ab80-2104-4933-8b77-12003da20c4f"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "grid",
+                    "info"
+                ],
+                "fn": "onSearchEngineRemove",
+                "implHandler": [
+                    "info.record.store.remove(info.record);"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "onSearchEngineRemove",
+            "designerId": "7973c4b8-8641-426c-a597-48b6ccb6564d"
+        }
+    ]
+}

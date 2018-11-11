@@ -1,0 +1,60 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Keywords",
+        "model": "Keyword",
+        "storeId": "keywords"
+    },
+    "configAlternates": {
+        "data": "array",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "model": "model",
+        "storeId": "string"
+    },
+    "name": "MyStore",
+    "designerId": "5c4c7360-e58d-491c-a21f-05e4e931217e",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Memory",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": "memoryProxy"
+            },
+            "configAlternates": {
+                "designer|displayName": "string"
+            },
+            "name": "MyMemoryProxy",
+            "designerId": "957f951e-5f2a-4c5c-82d4-9fc523a6b887",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "jsonReader",
+                        "rootProperty": "keywords"
+                    },
+                    "configAlternates": {
+                        "designer|displayName": "string",
+                        "rootProperty": "string"
+                    },
+                    "name": "MyJsonReader1",
+                    "designerId": "b90b2cdf-4cf2-44ca-b5b7-29edb6d66a7c"
+                }
+            ]
+        }
+    ]
+}

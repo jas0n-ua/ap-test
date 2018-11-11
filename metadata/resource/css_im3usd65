@@ -1,0 +1,20 @@
+{
+    "type": "cssresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "css_im3usd65",
+        "remote": true,
+        "url": "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    },
+    "configAlternates": {
+        "designer|userClassName": "string",
+        "remote": "boolean",
+        "url": "uri"
+    },
+    "name": "css",
+    "designerId": "fb091453-ffdd-4285-987e-925a2051711e"
+}

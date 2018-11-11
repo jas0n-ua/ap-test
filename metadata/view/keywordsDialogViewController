@@ -1,0 +1,175 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "keywordsdialog",
+        "designer|userClassName": "keywordsDialogViewController"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "designerId": "67160675-9510-4702-9658-7edb76680095",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button",
+                    "e"
+                ],
+                "fn": "onNext",
+                "implHandler": [
+                    "let view = this.view;",
+                    "",
+                    "let domains = Ext.Array.clean(Ext.Object.getValues(view.lookup('domainsForm').getValues()));",
+                    "",
+                    "let keywordsStore = Ext.data.StoreManager.lookup('keywords');",
+                    "let keywords = keywordsStore.getData().getValues('keyword', 'data');",
+                    "",
+                    "view.setMasked({xtype: 'loadmask'});",
+                    "",
+                    "Ext.Ajax.request({",
+                    "",
+                    "\tmethod: 'post',",
+                    "\turl: 'https://cors-anywhere.herokuapp.com/https://spyserp.com/panel/apiclient',",
+                    "",
+                    "\tjsonData: {method:\"projectCustom\",\tdomain: domains, keywords:keywords, multi:1}",
+                    "",
+                    "}).then((response) => {",
+                    "",
+                    "\tlet data = Ext.decode(response.responseText);",
+                    "\tconsole.dir(data);",
+                    "",
+                    "\tif (data.success !== false)",
+                    "\t{",
+                    "\t\tthis.lookup('cards').setActiveItem(1);",
+                    "",
+                    "\t\tlet additionalKeywordsStore = Ext.data.StoreManager.lookup('keywordsAdditional');",
+                    "\t\tadditionalKeywordsStore.loadRawData(data);",
+                    "\t}",
+                    "\telse",
+                    "\t{",
+                    "\t\tExt.Msg.alert('Error', data.msg || 'Unknown error');",
+                    "\t}",
+                    "",
+                    "}).always(() => {",
+                    "",
+                    "\tview.unmask();",
+                    "",
+                    "}).otherwise((response) => {",
+                    "",
+                    "\tExt.Msg.alert('error', response.status + ' ' + response.statusText + '<br>' + response.responseText);",
+                    "",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "onNext",
+            "designerId": "c218707e-47cf-4fa3-9013-119b66bca549"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button",
+                    "e"
+                ],
+                "fn": "onPrev",
+                "implHandler": [
+                    "this.lookup('cards').setActiveItem(0);"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "onPrev",
+            "designerId": "ae3a6c81-b11f-4cbd-9648-8c9928195f8c"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button",
+                    "e"
+                ],
+                "fn": "onSelectAll",
+                "implHandler": [
+                    "this._selected = !this._selected;",
+                    "",
+                    "let additionalKeywordsStore = Ext.data.StoreManager.lookup('keywordsAdditional');",
+                    "additionalKeywordsStore.each((rec) => {",
+                    "\trec.set('checked', this._selected);",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "onSelectAll",
+            "designerId": "f2fb4335-58f3-4a2e-ab50-a07418580785"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button",
+                    "e"
+                ],
+                "fn": "onAddKeywords",
+                "implHandler": [
+                    "let keywordsStore = Ext.data.StoreManager.lookup('keywords');",
+                    "let additionalKeywordsStore = Ext.data.StoreManager.lookup('keywordsAdditional');",
+                    "",
+                    "keywordsStore.beginUpdate();",
+                    "additionalKeywordsStore.each((rec) => {",
+                    "\tif (rec.get('checked'))",
+                    "\t\tkeywordsStore.add(rec.copy());",
+                    "});",
+                    "keywordsStore.endUpdate();",
+                    "",
+                    "this.view.close();"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "onAddKeywords",
+            "designerId": "bc756e36-74ca-4c16-bd50-4f605bda1028"
+        }
+    ]
+}

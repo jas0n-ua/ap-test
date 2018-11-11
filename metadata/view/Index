@@ -1,0 +1,713 @@
+{
+    "type": "Ext.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|initialView": true,
+        "designer|userAlias": "index",
+        "designer|userClassName": "Index",
+        "padding": 3,
+        "scrollable": true
+    },
+    "configAlternates": {
+        "designer|initialView": "boolean",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "layout": "string",
+        "padding": "auto",
+        "scrollable": "auto",
+        "items": "array",
+        "margin": "auto"
+    },
+    "name": "MyContainer",
+    "designerId": "9482629b-c1e6-4ff7-9937-abd9adcb232d",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "items",
+            "type": "string"
+        }
+    ],
+    "viewControllerInstanceId": "d5588da3-9711-400a-9d60-324feed6d4c8",
+    "viewModelInstanceId": "dfbac28e-c330-4c75-9cbb-63ab03234ee7",
+    "cn": [
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "defaults": [
+                    "{",
+                    "\tmargin: '0 5'",
+                    "}"
+                ],
+                "designer|displayName": "keywords"
+            },
+            "configAlternates": {
+                "height": "auto",
+                "border": "boolean",
+                "layout": "string",
+                "designer|displayName": "string",
+                "defaults": "object"
+            },
+            "name": "MyContainer1",
+            "designerId": "244fff96-d194-4fcc-8706-7ff31661fa9f",
+            "cn": [
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "keywordsHeader",
+                        "html": [
+                            "{step1Text}"
+                        ]
+                    },
+                    "configAlternates": {
+                        "html": "binding",
+                        "designer|displayName": "string"
+                    },
+                    "name": "MyContainer4",
+                    "designerId": "ef03cdc0-0cad-4535-9bbb-4fe2ab3c7a2b"
+                },
+                {
+                    "type": "Ext.field.TextArea",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "border": false,
+                        "height": 343,
+                        "hidden": [
+                            "{!editMode}"
+                        ],
+                        "itemId": "keywordsEditor",
+                        "label": "Put keywords one by line",
+                        "margin": "5 7 7 5",
+                        "reference": "keywordsEditor",
+                        "shadow": true
+                    },
+                    "configAlternates": {
+                        "border": "boolean",
+                        "itemId": "string",
+                        "label": "string",
+                        "layout|flex": "number",
+                        "margin": "auto",
+                        "reference": "string",
+                        "shadow": "boolean",
+                        "height": "auto",
+                        "hidden": "binding",
+                        "twoWayBindable": "string"
+                    },
+                    "name": "MyTextArea",
+                    "designerId": "c24465ca-a2b5-4cfa-aa45-9e6956d212cd"
+                },
+                {
+                    "type": "Ext.grid.Grid",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "headerContainer": [
+                            "{",
+                            "\t xtype: 'headercontainer',",
+                            "\t style: 'opacity: 0;'",
+                            "}"
+                        ],
+                        "height": 343,
+                        "hidden": [
+                            "{editMode}"
+                        ],
+                        "hideHeaders": true,
+                        "itemId": "",
+                        "margin": "5 7 7 5",
+                        "reference": "keywordsGrid",
+                        "shadow": true,
+                        "store": "keywords"
+                    },
+                    "configAlternates": {
+                        "columnLines": "boolean",
+                        "height": "auto",
+                        "itemId": "string",
+                        "name": "string",
+                        "width": "auto",
+                        "cls": "typedarray",
+                        "deferEmptyText": "boolean",
+                        "emptyText": "string",
+                        "store": "store",
+                        "headerContainer": "object",
+                        "hideHeaders": "boolean",
+                        "layout|flex": "number",
+                        "margin": "auto",
+                        "shadow": "boolean",
+                        "reference": "string",
+                        "bbar": "object",
+                        "hidden": "binding"
+                    },
+                    "name": "MyGrid",
+                    "designerId": "2343cb72-b928-440c-a29a-c9e8c70086af",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "headerContainer",
+                            "type": "string"
+                        }
+                    ],
+                    "cn": [
+                        {
+                            "type": "Ext.grid.column.RowNumberer",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "rowNumber",
+                                "docked": null,
+                                "width": 50
+                            },
+                            "configAlternates": {
+                                "designer|displayName": "string",
+                                "docked": "string",
+                                "width": "auto"
+                            },
+                            "name": "MyRowNumberer",
+                            "designerId": "4099f110-1cb4-490d-94f2-549242d94516"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "keyword",
+                                "docked": null,
+                                "flex": 1
+                            },
+                            "configAlternates": {
+                                "dataIndex": "datafield",
+                                "docked": "string",
+                                "text": "string",
+                                "flex": "number"
+                            },
+                            "name": "MyColumn1",
+                            "designerId": "e3bc75b6-a2c0-4ec8-a62b-679f933b37fc",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "flex",
+                                    "type": "string"
+                                }
+                            ],
+                            "cn": [
+                                {
+                                    "type": "Ext.grid.cell.Text",
+                                    "reference": {
+                                        "name": "cell",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "bodyStyle": "font-weight: bold;"
+                                    },
+                                    "configAlternates": {
+                                        "bodyStyle": "string"
+                                    },
+                                    "name": "MyTextCell",
+                                    "designerId": "8cb63cb7-61cf-4789-b4ff-13f4b4317b1e"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "align": "right",
+                                "cell": [
+                                    "{xtype: 'gridcell', encodeHtml: false, bodyStyle: 'font-size: small;'}"
+                                ],
+                                "dataIndex": "frequency",
+                                "docked": null,
+                                "formatter": "myFreq",
+                                "width": 85
+                            },
+                            "configAlternates": {
+                                "dataIndex": "datafield",
+                                "docked": "string",
+                                "text": "string",
+                                "align": "string",
+                                "width": "auto",
+                                "cell": "object",
+                                "formatter": "string"
+                            },
+                            "name": "MyColumn2",
+                            "designerId": "72ca81d4-de02-41d2-be10-32cc5706ec5e"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "cell": [
+                                    "{",
+                                    "\ttools: [",
+                                    "\t\t{",
+                                    "\t\t\ticonCls: 'fa fa-trash',",
+                                    "\t\t\thandler: 'onKeywordsDelete'",
+                                    "\t\t}",
+                                    "\t]",
+                                    "\t",
+                                    "}"
+                                ],
+                                "dataIndex": "controls",
+                                "docked": null,
+                                "width": 40
+                            },
+                            "configAlternates": {
+                                "docked": "string",
+                                "text": "string",
+                                "width": "auto",
+                                "dataIndex": "datafield",
+                                "cell": "object"
+                            },
+                            "name": "MyColumn3",
+                            "designerId": "cd9669ec-ff74-4a7a-b7a4-c28a46a601b0"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "defaults": [
+                            "{xtype: 'button'}"
+                        ],
+                        "designer|displayName": "keywordsToolbar",
+                        "items": [
+                            "[",
+                            "\t{",
+                            "\t\ttext: 'Import from file',",
+                            "\t\ticonCls: 'fa fa-upload',",
+                            "\t\thandler: 'onKeywordsImportFromFile',",
+                            "\t\t",
+                            "\t\tplugins: {responsive: true},",
+                            "\t\tresponsiveConfig: {",
+                            "\t\t\twide: {",
+                            "\t\t\t\thidden: false",
+                            "\t\t\t},",
+                            "\t\t\ttall: {",
+                            "\t\t\t\thidden: true",
+                            "\t\t\t}",
+                            "\t\t}",
+                            "\t\t",
+                            "\t},",
+                            "\t{",
+                            "\t\ttext: 'Analyze competitors',",
+                            "\t\ticonCls: 'fa fa-pie-chart',",
+                            "\t\thandler: 'onKeywordsAnalyzeCompetitors',",
+                            "\t\t",
+                            "\t\tbind: {hidden: '{editMode}'}",
+                            "\t},",
+                            "\t{",
+                            "\t\txtype: 'container',",
+                            "\t\tflex: 1",
+                            "\t},",
+                            "\t{",
+                            "\t\ttext: 'Edit',",
+                            "\t\ticonCls: 'fa fa-pencil-square-o',",
+                            "\t\thandler: 'onKeywordsEdit',",
+                            "\t\t",
+                            "\t\tbind: {hidden: '{editMode}'}",
+                            "\t},",
+                            "\t{",
+                            "\t\ttext: 'Cancel',",
+                            "\t\thandler: 'onKeywordsCancel',",
+                            "\t\thidden: true,",
+                            "\t\t",
+                            "\t\tbind: {hidden: '{!editMode}'}",
+                            "\t},",
+                            "\t{",
+                            "\t\ttext: 'Save',",
+                            "\t\ticonCls: 'fa fa-floppy-o',",
+                            "\t\thandler: 'onKeywordsSave',",
+                            "\t\t",
+                            "\t\tbind: {hidden: '{!editMode}'}",
+                            "\t}",
+                            "]",
+                            ""
+                        ],
+                        "layout": "hbox",
+                        "margin": "20 5 0",
+                        "padding": "0 5 0 0"
+                    },
+                    "configAlternates": {
+                        "items": "array",
+                        "defaults": "object",
+                        "layout": "string",
+                        "reference": "string",
+                        "margin": "auto",
+                        "padding": "auto",
+                        "designer|displayName": "string"
+                    },
+                    "name": "MyContainer",
+                    "designerId": "d13b1da9-9de3-4f69-a255-6419e6635b42",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "items",
+                            "type": "string"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "defaults": [
+                    "{",
+                    "\tmargin: '0 5'",
+                    "}"
+                ],
+                "designer|displayName": "searchEngines",
+                "margin": "20 0 0 0"
+            },
+            "configAlternates": {
+                "height": "auto",
+                "html": "string",
+                "layout": "string",
+                "defaults": "object",
+                "designer|displayName": "string",
+                "margin": "auto"
+            },
+            "name": "MyContainer2",
+            "designerId": "7fb60884-79e4-46c1-a93d-b7d988a1b5a5",
+            "cn": [
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "searchEnginesHeader",
+                        "html": [
+                            "{step2Text}"
+                        ]
+                    },
+                    "configAlternates": {
+                        "html": "binding",
+                        "designer|displayName": "string"
+                    },
+                    "name": "MyContainer5",
+                    "designerId": "659d63e7-0614-4980-8f77-0cc06d42af16"
+                },
+                {
+                    "type": "Ext.grid.Grid",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "headerContainer": [
+                            "{",
+                            "\t xtype: 'headercontainer',",
+                            "\t style: 'opacity: 0;'",
+                            "}"
+                        ],
+                        "hideHeaders": true,
+                        "infinite": false,
+                        "margin": "5 7 7 5",
+                        "reference": "searchEnginesGrid",
+                        "shadow": true,
+                        "store": "searchEngines"
+                    },
+                    "configAlternates": {
+                        "columnLines": "boolean",
+                        "height": "auto",
+                        "itemId": "string",
+                        "name": "string",
+                        "width": "auto",
+                        "cls": "typedarray",
+                        "deferEmptyText": "boolean",
+                        "emptyText": "string",
+                        "store": "store",
+                        "headerContainer": "object",
+                        "hideHeaders": "boolean",
+                        "layout|flex": "number",
+                        "margin": "auto",
+                        "shadow": "boolean",
+                        "reference": "string",
+                        "minHeight": "auto",
+                        "infinite": "boolean"
+                    },
+                    "name": "MyGrid2",
+                    "designerId": "492b4bdb-1127-427e-b93d-9804bda96639",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "headerContainer",
+                            "type": "string"
+                        }
+                    ],
+                    "cn": [
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "cell": [
+                                    "{xtype: 'gridcell',encodeHtml: false}"
+                                ],
+                                "dataIndex": "name",
+                                "docked": null,
+                                "flex": 1
+                            },
+                            "configAlternates": {
+                                "dataIndex": "datafield",
+                                "docked": "string",
+                                "text": "string",
+                                "flex": "number",
+                                "cell": "object"
+                            },
+                            "name": "MyColumn1",
+                            "designerId": "1d82097b-afa8-4b90-9833-fbecbff1b726",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "flex",
+                                    "type": "string"
+                                }
+                            ],
+                            "cn": [
+                                {
+                                    "type": "Ext.XTemplate",
+                                    "reference": {
+                                        "name": "tpl",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|displayName": "tpl",
+                                        "implHandler": [
+                                            "<div class=\"se-block\">",
+                                            "\t<div class=\"se-pic\">{[this.img(values.seId)]}</div>",
+                                            "\t<div class=\"se-text\">",
+                                            "\t\t<div class=\"se-name\">{name}</div>",
+                                            "\t\t<div class=\"se-info\">{info}</div>",
+                                            "\t</div>",
+                                            "</div>"
+                                        ]
+                                    },
+                                    "configAlternates": {
+                                        "designer|displayName": "string",
+                                        "implHandler": "code"
+                                    },
+                                    "name": "tpl",
+                                    "designerId": "34d38d7b-f66b-4bb5-b5f4-53c833fcb73d",
+                                    "cn": [
+                                        {
+                                            "type": "templatefunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "seId"
+                                                ],
+                                                "fn": "img",
+                                                "implHandler": [
+                                                    "return MyApp.shared.seImgTagBuilder(seId);"
+                                                ]
+                                            },
+                                            "configAlternates": {
+                                                "designer|params": "typedarray",
+                                                "fn": "string",
+                                                "implHandler": "code"
+                                            },
+                                            "name": "img",
+                                            "designerId": "63c443d1-5c68-4315-97af-8c1dff4948a4"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "cell": [
+                                    "{",
+                                    "\txtype: 'gridcell', ",
+                                    "\tencodeHtml: false,",
+                                    "\t",
+                                    "\ttools: [",
+                                    "\t\t{",
+                                    "\t\t\tzone: 'end',",
+                                    "\t\t\ticonCls: 'fa fa-cog',",
+                                    "\t\t\thandler: 'onSearchEngineEdit'",
+                                    "\t\t},",
+                                    "\t\t{",
+                                    "\t\t\tzone: 'end',",
+                                    "\t\t\ticonCls: 'fa fa-trash',",
+                                    "\t\t\thandler: 'onSearchEngineRemove'",
+                                    "\t\t}",
+                                    "\t]",
+                                    "}"
+                                ],
+                                "designer|displayName": "tools",
+                                "docked": null,
+                                "text": "MyColumn",
+                                "width": 80
+                            },
+                            "configAlternates": {
+                                "cell": "object",
+                                "designer|displayName": "string",
+                                "docked": "string",
+                                "text": "string",
+                                "width": "auto"
+                            },
+                            "name": "MyColumn",
+                            "designerId": "31a5d380-fb4b-4561-a622-051632754bbf",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "ce",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|pack": "end",
+                        "defaults": [
+                            "{xtype: 'button'}"
+                        ],
+                        "designer|displayName": "searchEnginesToolbar",
+                        "items": [
+                            "[",
+                            "\t{",
+                            "\t\ttext: 'add',",
+                            "\t\ticonCls: 'fa fa-plus',",
+                            "\t\thandler: 'onSearchEngineAdd'",
+                            "\t}",
+                            "]",
+                            ""
+                        ],
+                        "layout": "hbox",
+                        "margin": "20 5 0",
+                        "padding": "0 5"
+                    },
+                    "configAlternates": {
+                        "items": "array",
+                        "container|pack": "string",
+                        "defaults": "object",
+                        "layout": "string",
+                        "margin": "auto",
+                        "padding": "auto",
+                        "reference": "string",
+                        "designer|displayName": "string"
+                    },
+                    "name": "MyContainer3",
+                    "designerId": "d9a45112-534d-46cb-8345-e61c9e88a68f",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "items",
+                            "type": "string"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": "spacer",
+                "height": 100
+            },
+            "configAlternates": {
+                "designer|displayName": "string",
+                "height": "auto"
+            },
+            "name": "MyContainer6",
+            "designerId": "e012b4f3-b9cf-4a5a-9ba4-5786eaca818b"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "initialize",
+                "implHandler": [
+                    "this.callParent();",
+                    "this.getController().initialize();"
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "initialize",
+            "designerId": "2ef249f2-6559-4b62-ac2e-74478b54e5b6"
+        }
+    ]
+}

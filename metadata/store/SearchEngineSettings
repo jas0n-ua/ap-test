@@ -1,0 +1,56 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "SearchEngineSettings",
+        "model": "SearchEngineSettings",
+        "storeId": "searchEngineSettings"
+    },
+    "configAlternates": {
+        "designer|userClassName": "string",
+        "model": "model",
+        "storeId": "string"
+    },
+    "name": "MyStore",
+    "designerId": "589373de-8a5b-4261-8f08-b66d7865d863",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Memory",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": "memoryProxy"
+            },
+            "configAlternates": {
+                "designer|displayName": "string"
+            },
+            "name": "MyMemoryProxy1",
+            "designerId": "2a5fe972-1d87-4ef6-8c1f-f6f2c5ac0105",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "jsonReader"
+                    },
+                    "configAlternates": {
+                        "designer|displayName": "string"
+                    },
+                    "name": "MyJsonReader2",
+                    "designerId": "888f8ff1-f557-4abd-b92e-39ee6ce4a34b"
+                }
+            ]
+        }
+    ]
+}

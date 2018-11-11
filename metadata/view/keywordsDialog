@@ -1,0 +1,500 @@
+{
+    "type": "Ext.Dialog",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "bodyStyle": "padding: 0;",
+        "closable": true,
+        "designer|userAlias": "keywordsdialog",
+        "designer|userClassName": "keywordsDialog",
+        "height": "90%",
+        "layout": "fit",
+        "maxWidth": 700,
+        "title": [
+            "{dialogTitle}"
+        ],
+        "width": "90%"
+    },
+    "configAlternates": {
+        "visible": "boolean",
+        "centered": "boolean",
+        "closable": "boolean",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "fullscreen": "boolean",
+        "height": "auto",
+        "title": "binding",
+        "width": "auto",
+        "container|animation": "auto",
+        "layout": "string",
+        "tbar": "array",
+        "bodyStyle": "string",
+        "maxWidth": "auto"
+    },
+    "name": "MyDialog",
+    "designerId": "ba98e8a4-e362-4e94-803d-59673169bd23",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "lay",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "visible",
+            "type": "string"
+        }
+    ],
+    "viewControllerInstanceId": "67160675-9510-4702-9658-7edb76680095",
+    "viewModelInstanceId": "9f0f8e9e-82ca-4045-a560-05a5dcca2483",
+    "cn": [
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|animation": "slide",
+                "layout": "card",
+                "publishes": "activeItemIndex",
+                "reference": "cards"
+            },
+            "configAlternates": {
+                "html": "string",
+                "container|animation": "auto",
+                "layout": "string",
+                "reference": "string",
+                "activeItem": "number",
+                "publishes": "string"
+            },
+            "name": "MyContainer4",
+            "designerId": "44556afc-065a-4ed4-b311-1eeba9ef2fa1",
+            "cn": [
+                {
+                    "type": "Ext.field.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "bodyPadding": 15,
+                        "defaults": [
+                            "{cls: 'myapp-textfield-label-active'}"
+                        ],
+                        "reference": "domainsForm"
+                    },
+                    "configAlternates": {
+                        "html": "string",
+                        "reference": "string",
+                        "bodyPadding": "auto",
+                        "defaults": "object"
+                    },
+                    "name": "MyFieldPanel",
+                    "designerId": "2504c772-595c-41bf-9228-b1ff0046d29d",
+                    "cn": [
+                        {
+                            "type": "Ext.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "label": "Competitor #1",
+                                "name": "competitor1",
+                                "value": [
+                                    "google.com",
+                                    ""
+                                ]
+                            },
+                            "configAlternates": {
+                                "label": "string",
+                                "name": "string",
+                                "value": "object"
+                            },
+                            "name": "MyTextField1",
+                            "designerId": "74ca102e-fef2-4c40-8d73-af9d5de651d8"
+                        },
+                        {
+                            "type": "Ext.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "label": "Competitor #2",
+                                "name": "competitor2"
+                            },
+                            "configAlternates": {
+                                "label": "string",
+                                "name": "string"
+                            },
+                            "name": "MyTextField2",
+                            "designerId": "256b343d-1473-44aa-87c7-27658995f9c3"
+                        },
+                        {
+                            "type": "Ext.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "label": "Competitor #3",
+                                "name": "competitor3"
+                            },
+                            "configAlternates": {
+                                "label": "string",
+                                "name": "string"
+                            },
+                            "name": "MyTextField3",
+                            "designerId": "f9e46452-d79b-49ea-a2f9-7a1fb89a81b1"
+                        },
+                        {
+                            "type": "Ext.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "label": "Competitor #4",
+                                "name": "competitor4"
+                            },
+                            "configAlternates": {
+                                "label": "string",
+                                "name": "string"
+                            },
+                            "name": "MyTextField4",
+                            "designerId": "75cce3b6-3f20-4db3-b11c-bde9a602d28b"
+                        },
+                        {
+                            "type": "Ext.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "label": "Competitor #5",
+                                "name": "competitor5"
+                            },
+                            "configAlternates": {
+                                "label": "string",
+                                "name": "string"
+                            },
+                            "name": "MyTextField5",
+                            "designerId": "47ed15da-b24a-468d-80f0-532ac5332776"
+                        },
+                        {
+                            "type": "Ext.Toolbar",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "cls": [
+                                    "myapp-no-padding-toolbar"
+                                ],
+                                "designer|displayName": "domainsToolbar",
+                                "docked": "bottom",
+                                "items": [
+                                    "[",
+                                    "\t'->',",
+                                    "\t{",
+                                    "\t\ttext: 'next',",
+                                    "\t\thandler: 'onNext'",
+                                    "\t}",
+                                    "]",
+                                    ""
+                                ]
+                            },
+                            "configAlternates": {
+                                "docked": "string",
+                                "items": "array",
+                                "designer|displayName": "string",
+                                "cls": "typedarray"
+                            },
+                            "name": "MyToolbar",
+                            "designerId": "62157e85-d9cd-467a-ae95-67f01ea69d04",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "items",
+                                    "type": "string"
+                                },
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "bodyStyle",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "keywords",
+                        "layout": "vbox"
+                    },
+                    "configAlternates": {
+                        "html": "string",
+                        "layout": "string",
+                        "designer|displayName": "string"
+                    },
+                    "name": "MyContainer6",
+                    "designerId": "daf11c0f-9c81-4d8a-aa32-1e0901a43320",
+                    "cn": [
+                        {
+                            "type": "Ext.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "keywordsTopToolbar",
+                                "items": [
+                                    "[",
+                                    "\t{",
+                                    "\t\txtype: 'button',",
+                                    "\t\ttext: 'Select All',",
+                                    "\t\thandler: 'onSelectAll'",
+                                    "\t}",
+                                    "]"
+                                ]
+                            },
+                            "configAlternates": {
+                                "items": "array",
+                                "designer|displayName": "string"
+                            },
+                            "name": "MyContainer8",
+                            "designerId": "850e0055-93bf-49dd-8d16-001fedb6909f",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "items",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.grid.Grid",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "headerContainer": [
+                                    "{",
+                                    "\t xtype: 'headercontainer',",
+                                    "\t style: 'opacity: 0;'",
+                                    "}"
+                                ],
+                                "hideHeaders": true,
+                                "layout|flex": 1,
+                                "reference": "keywordsGrid",
+                                "store": "keywordsAdditional"
+                            },
+                            "configAlternates": {
+                                "columnLines": "boolean",
+                                "height": "auto",
+                                "itemId": "string",
+                                "name": "string",
+                                "width": "auto",
+                                "cls": "typedarray",
+                                "deferEmptyText": "boolean",
+                                "emptyText": "string",
+                                "store": "store",
+                                "headerContainer": "object",
+                                "hideHeaders": "boolean",
+                                "layout|flex": "number",
+                                "margin": "auto",
+                                "shadow": "boolean",
+                                "reference": "string",
+                                "tbar": "object"
+                            },
+                            "name": "MyGrid1",
+                            "designerId": "36c275a3-40ba-4cba-94db-53790e77203f",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "headerContainer",
+                                    "type": "string"
+                                },
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "tbar",
+                                    "type": "string"
+                                }
+                            ],
+                            "cn": [
+                                {
+                                    "type": "Ext.grid.column.Check",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "checked",
+                                        "designer|displayName": "check",
+                                        "docked": null,
+                                        "width": 30
+                                    },
+                                    "configAlternates": {
+                                        "dataIndex": "datafield",
+                                        "designer|displayName": "string",
+                                        "docked": "string",
+                                        "width": "auto"
+                                    },
+                                    "name": "MyCheckColumn",
+                                    "designerId": "f5bd5b4a-d67e-4769-89c5-10d789832c24"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "keyword",
+                                        "docked": null,
+                                        "flex": 1
+                                    },
+                                    "configAlternates": {
+                                        "dataIndex": "datafield",
+                                        "docked": "string",
+                                        "text": "string",
+                                        "flex": "number"
+                                    },
+                                    "name": "MyColumn1",
+                                    "designerId": "6e36cdc1-ad9f-4f08-af23-eef4404a692a",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "flex",
+                                            "type": "string"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "align": "right",
+                                        "cell": [
+                                            "{xtype: 'gridcell', encodeHtml: false, bodyStyle: 'font-size: small;'}"
+                                        ],
+                                        "dataIndex": "frequency",
+                                        "docked": null,
+                                        "formatter": "myFreq",
+                                        "width": 85
+                                    },
+                                    "configAlternates": {
+                                        "dataIndex": "datafield",
+                                        "docked": "string",
+                                        "text": "string",
+                                        "align": "string",
+                                        "width": "auto",
+                                        "cell": "object",
+                                        "formatter": "string"
+                                    },
+                                    "name": "MyColumn2",
+                                    "designerId": "5efe4bc0-21ed-42f8-85e8-933010cc6989"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.Toolbar",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "cls": [
+                                    "myapp-no-padding-toolbar"
+                                ],
+                                "designer|displayName": "keywordsToolbar",
+                                "docked": "bottom",
+                                "items": [
+                                    "[",
+                                    "\t{",
+                                    "\t\ttext: 'back',",
+                                    "\t\thandler: 'onPrev'",
+                                    "\t},",
+                                    "\t'->',",
+                                    "\t{",
+                                    "\t\ttext: 'add keywords',",
+                                    "\t\thandler: 'onAddKeywords'",
+                                    "\t}",
+                                    "]"
+                                ]
+                            },
+                            "configAlternates": {
+                                "items": "array",
+                                "docked": "string",
+                                "cls": "typedarray",
+                                "designer|displayName": "string"
+                            },
+                            "name": "MyToolbar2",
+                            "designerId": "7b2b3862-71b2-49d3-9407-111633359f06",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "items",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onDialogDestroy",
+                "implHandler": [
+                    "Ext.data.StoreManager.lookup('keywordsAdditional').removeAll();"
+                ],
+                "name": "destroy",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onDialogDestroy",
+            "designerId": "ccf1fbc2-6681-441f-afe4-cead5cc0e72d"
+        }
+    ]
+}

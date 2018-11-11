@@ -1,0 +1,91 @@
+.se-block {
+
+}
+
+.se-block .se-pic {
+    display: inline-block;
+    width: 40px;
+    height: 32px;
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+.se-block.se-block-small .se-pic {
+    width: 22px;
+    height: 16px;
+}
+
+.se-block.se-block-small .se-pic img {
+    width: 16px;
+}
+
+.se-block .se-text {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 30px;
+}
+
+.se-block .se-name {
+    font-weight: bold;
+}
+
+.se-block .se-info  {
+    font-size : smaller;
+    white-space: normal;
+    line-height: 12px;
+    font-style: italic;
+}
+
+.myapp-project-text {
+    line-height: 32px
+}
+
+.myapp-step-text {
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 32px;
+}
+
+.myapp-no-padding-toolbar .x-body-el {
+    padding:0;
+}
+
+.myapp-img-holder {
+    width: 16px;
+    padding: 8px 0;
+    margin-right: 5px;
+}
+
+.myapp-img-holder img {
+    width: 16px;
+    vertical-align: middle;
+}
+
+hr {
+   display: block;
+    height: 1px;
+    border: 0;
+    border-top: 2px solid #ccc;
+}
+
+.x-big .x-button {
+    font-size: 14px;
+}
+
+.x-big .x-button .x-icon-el:before {
+    font-size: 22px;
+}
+
+.x-big .x-button .x-icon-el {
+    width: 22px;
+    height: 22px;
+}
+
+.x-big .x-button.x-has-text.x-icon-align-left .x-icon-el {
+    margin-right: 4px;
+}
+
+.x-textfield.myapp-textfield-label-active .x-label-el {
+    transform: none !important;
+    font-size: 12px !important;
+}

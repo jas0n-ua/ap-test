@@ -1,0 +1,38 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "data": [
+            "{",
+            "\tstep1Text: [",
+            "\t\t'<span class=\"myapp-project-text\">New project for lenta.ru</span>',",
+            "\t\t'<span class=\"myapp-step-text\">Add keywords (Step 1 of 2)</span><br><hr>'",
+            "\t].join('<br>'),",
+            "\t",
+            "\tstep2Text: '<span class=\"myapp-step-text\">Add Search Engines (Step 2 of 2)</span><br><hr>',",
+            "\t",
+            "\teditMode: false",
+            "}"
+        ],
+        "designer|userAlias": "index",
+        "designer|userClassName": "IndexViewModel"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "statics": "object",
+        "data": "object"
+    },
+    "designerId": "dfbac28e-c330-4c75-9cbb-63ab03234ee7",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "statics",
+            "type": "string"
+        }
+    ]
+}

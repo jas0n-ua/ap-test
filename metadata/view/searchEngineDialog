@@ -1,0 +1,123 @@
+{
+    "type": "Ext.Dialog",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "bodyStyle": "padding: 0;",
+        "closable": true,
+        "designer|userAlias": "searchenginedialog",
+        "designer|userClassName": "searchEngineDialog",
+        "height": "90%",
+        "layout": "fit",
+        "maxHeight": 750,
+        "maxWidth": 700,
+        "width": "90%"
+    },
+    "configAlternates": {
+        "centered": "boolean",
+        "closable": "boolean",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "height": "auto",
+        "layout": "string",
+        "title": "string",
+        "width": "auto",
+        "bodyStyle": "string",
+        "maxHeight": "auto",
+        "maxWidth": "auto"
+    },
+    "name": "MyDialog",
+    "designerId": "39a58d72-f421-4e4a-8f2b-cb5bf1d93bc9",
+    "viewControllerInstanceId": "1a621152-be99-42fe-b999-d106886e3541",
+    "viewModelInstanceId": "4ce829c8-9e2f-496c-a50b-c3982c6389a0",
+    "cn": [
+        {
+            "type": "Ext.field.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 15,
+                "defaults": [
+                    "{cls: 'myapp-textfield-label-active'}"
+                ],
+                "reference": "searchEngineForm"
+            },
+            "configAlternates": {
+                "buttons": "object",
+                "reference": "string",
+                "bodyPadding": "auto",
+                "defaults": "object"
+            },
+            "name": "MyFieldPanel",
+            "designerId": "54eab755-20ac-4f40-9366-bb2a65792c06"
+        },
+        {
+            "type": "Ext.Toolbar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": "searchEngineToolbar",
+                "docked": "bottom",
+                "items": [
+                    "[",
+                    "\t'->',",
+                    "\t{",
+                    "\t\ttext: 'Cancel',",
+                    "\t\thandler: 'onCancel'",
+                    "\t},",
+                    "\t{",
+                    "\t\ttext: 'Add',",
+                    "\t\tui: 'action',",
+                    "\t\thandler: 'onSave',",
+                    "\t\treference: 'saveButton'",
+                    "\t}",
+                    "]"
+                ]
+            },
+            "configAlternates": {
+                "items": "array",
+                "designer|displayName": "string",
+                "docked": "string"
+            },
+            "name": "MyToolbar1",
+            "designerId": "4e02d99b-fa4b-4796-80be-9ba66d71e4ae",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "items",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "initialize",
+                "implHandler": [
+                    "this.callParent();",
+                    "this.getController().initialize();"
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "initialize",
+            "designerId": "e3576be2-f5e3-4b21-a3be-995202956355"
+        }
+    ]
+}

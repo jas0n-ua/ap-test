@@ -1,0 +1,283 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "searchenginedialog",
+        "designer|userClassName": "searchEngineDialogViewController"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "designerId": "1a621152-be99-42fe-b999-d106886e3541",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "initialize",
+                "implHandler": [
+                    "this.initForm();",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "initialize",
+            "designerId": "fb925be1-d0e2-4178-a345-8fbbd90206ce"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "initForm",
+                "implHandler": [
+                    "let view = this.view;",
+                    "let rec = view._record || null;",
+                    "let form = this.lookup('searchEngineForm');",
+                    "let searchEngineId = rec ? rec.get('seId') : null;",
+                    "",
+                    "view._recId = view._record ? view._record.get('id') : null;",
+                    "",
+                    "this.lookup('saveButton').setText(view._recId ? 'Save' : 'Add');",
+                    "",
+                    "let tpl = Ext.create('Ext.XTemplate',",
+                    "\t'<div class=\"se-block se-block-small\">',",
+                    "\t\t'<div class=\"se-pic\">',",
+                    "\t\t\t'{[this.img(values.id)]}',",
+                    "\t\t'</div>',",
+                    "\t\t'<div class=\"se-text\">',",
+                    "\t\t\t'{name}',",
+                    "\t\t'</div>',",
+                    "\t'</div>',",
+                    "\t{",
+                    "\t\timg: MyApp.shared.seImgTagBuilder",
+                    "\t}",
+                    ");",
+                    "",
+                    "form.add({",
+                    "\txtype: 'mycombo',",
+                    "\tstore: 'searchEngineSettings',",
+                    "",
+                    "\tname: 'searchEngine',",
+                    "\tlabel: 'Search Engine',",
+                    "",
+                    "\tvalue: searchEngineId,",
+                    "",
+                    "\tvalueField: 'id',",
+                    "\tdisplayField: 'name',",
+                    "",
+                    "\tqueryMode: 'local',",
+                    "",
+                    "\tforceSelection: true,",
+                    "\teditable: false,",
+                    "",
+                    "\tlisteners: {",
+                    "\t\tchange: 'onSearchEngineChange'",
+                    "\t},",
+                    "",
+                    "\titemTpl: tpl",
+                    "});",
+                    "",
+                    "if (searchEngineId)",
+                    "\tthis.updateForm();"
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "initForm",
+            "designerId": "fc552c10-117a-47c8-ae58-0dc1d8f87b2f"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "updateForm",
+                "implHandler": [
+                    "let view = this.view;",
+                    "let rec = view._record || null;",
+                    "let form = this.lookup('searchEngineForm');",
+                    "",
+                    "while ((form.getAt(1)))",
+                    "\tform.removeAt(1);",
+                    "",
+                    "let searchEngineId = form.getValues().searchEngine;",
+                    "let searchEngineSettingsStore = Ext.data.StoreManager.lookup('searchEngineSettings');",
+                    "let searchEngineRec = searchEngineSettingsStore.getById(searchEngineId);",
+                    "",
+                    "if (!searchEngineRec) return;",
+                    "",
+                    "let settingsKeys = searchEngineRec.get('settings');",
+                    "let editableSettings = searchEngineRec.get('editableSettings');",
+                    "let defaultSettings = searchEngineRec.get('defaultSettings');",
+                    "",
+                    "Ext.Array.each(settingsKeys, (settingsKey) => {",
+                    "",
+                    "\tlet store = Ext.data.StoreManager.lookup('searchEngineSettingsDictionary_' + settingsKey);",
+                    "\tlet xtype = store ? 'combobox' : 'textfield';",
+                    "",
+                    "\tlet item = {",
+                    "\t\txtype: xtype,",
+                    "\t\tstore: store,",
+                    "",
+                    "\t\tname: settingsKey,",
+                    "\t\tlabel: editableSettings[settingsKey].label,",
+                    "",
+                    "\t\tvalue: rec ? rec.get('settings')[settingsKey] : defaultSettings[settingsKey]",
+                    "\t};",
+                    "",
+                    "\tif (store)",
+                    "\t\tExt.apply(item, {",
+                    "\t\t\tvalueField: store._long ? 'name' : 'id',",
+                    "\t\t\tdisplayField: 'name',",
+                    "",
+                    "\t\t\tqueryMode: store._long ? 'remote' : 'local',",
+                    "",
+                    "\t\t\tforceSelection: !store._long,",
+                    "",
+                    "\t\t\tqueryParam: 'search',",
+                    "",
+                    "\t\t\tlisteners: {",
+                    "\t\t\t\tbeforequery: (queryPlan) => {",
+                    "\t\t\t\t\t",
+                    "\t\t\t\t}",
+                    "\t\t\t}",
+                    "\t\t});",
+                    "",
+                    "\tform.add(item);",
+                    "});",
+                    "",
+                    "delete view._record;",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "updateForm",
+            "designerId": "433d61b1-3fd8-41aa-99ac-958c6bbf102a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onSearchEngineChange",
+                "implHandler": [
+                    "this.updateForm();"
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "onSearchEngineChange",
+            "designerId": "cc72ddf9-4d3f-4692-8558-c3e65f63213d"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "butten",
+                    "e"
+                ],
+                "fn": "onSave",
+                "implHandler": [
+                    "let view = this.view;",
+                    "let form = this.lookup('searchEngineForm');",
+                    "",
+                    "let formValues = form.getValues();",
+                    "let infoValues = {};",
+                    "",
+                    "Ext.Object.each(formValues, (key, value) => {",
+                    "",
+                    "\tif (key == 'searchEngine') return;",
+                    "",
+                    "\tlet store = Ext.data.StoreManager.lookup('searchEngineSettingsDictionary_' + key);",
+                    "\tlet rec = store ? store.getById(value) : null;",
+                    "\tinfoValues[key] = rec ? rec.get('name') : value;",
+                    "",
+                    "});",
+                    "",
+                    "let searchEngineId = form.getValues().searchEngine;",
+                    "let searchEngineSettingsStore = Ext.data.StoreManager.lookup('searchEngineSettings');",
+                    "let searchEngineRec = searchEngineSettingsStore.getById(searchEngineId);",
+                    "",
+                    "let searchEnginesStore = Ext.data.StoreManager.lookup('searchEngines');",
+                    "",
+                    "let record = view._recId ? searchEnginesStore.getById(view._recId) : searchEnginesStore.add({})[0];",
+                    "",
+                    "record.set({",
+                    "\tseId: searchEngineId,",
+                    "\tname: searchEngineRec.get('name'),",
+                    "\tinfo: Ext.Object.getValues(infoValues).join(', ').replace(/(,\\s)+/g, ', ').replace(/(,\\s)$/g, ''),",
+                    "\tsettings: formValues",
+                    "});",
+                    "",
+                    "view.close();"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "onSave",
+            "designerId": "1fccf6fa-5e67-486f-a6df-99bc79aed18b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button",
+                    "e"
+                ],
+                "fn": "onCancel",
+                "implHandler": [
+                    "this.view.close();"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "onCancel",
+            "designerId": "b894c85e-22c9-40f1-9231-fd861015f8d2"
+        }
+    ]
+}
