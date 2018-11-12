@@ -136,6 +136,9 @@ Ext.define('MyApp.view.keywordsDialog', {
 								},
 								{
 									xtype: 'gridcolumn',
+									renderer: function(value, record, dataIndex, cell, column) {
+										return MyApp.view.IndexViewController.freqFormatter(value);
+									},
 									width: 85,
 									align: 'right',
 									cell: {
@@ -143,8 +146,7 @@ Ext.define('MyApp.view.keywordsDialog', {
 										encodeHtml: false,
 										bodyStyle: 'font-size: small;'
 									},
-									dataIndex: 'frequency',
-									formatter: 'myFreq'
+									dataIndex: 'frequency'
 								}
 							]
 						},

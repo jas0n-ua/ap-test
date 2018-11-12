@@ -247,7 +247,6 @@
                                 ],
                                 "dataIndex": "frequency",
                                 "docked": null,
-                                "formatter": "myFreq",
                                 "width": 85
                             },
                             "configAlternates": {
@@ -260,7 +259,37 @@
                                 "formatter": "string"
                             },
                             "name": "MyColumn2",
-                            "designerId": "72ca81d4-de02-41d2-be10-32cc5706ec5e"
+                            "designerId": "72ca81d4-de02-41d2-be10-32cc5706ec5e",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "value",
+                                            "record",
+                                            "dataIndex",
+                                            "cell",
+                                            "column"
+                                        ],
+                                        "fn": "renderer",
+                                        "implHandler": [
+                                            "return MyApp.view.IndexViewController.freqFormatter(value);"
+                                        ]
+                                    },
+                                    "configAlternates": {
+                                        "designer|params": "typedarray",
+                                        "fn": "string",
+                                        "implHandler": "code"
+                                    },
+                                    "name": "renderer",
+                                    "designerId": "9cf24a62-5a3c-4882-86eb-5dcf90a5480e"
+                                }
+                            ]
                         },
                         {
                             "type": "Ext.grid.column.Column",

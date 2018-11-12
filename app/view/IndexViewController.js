@@ -17,6 +17,13 @@ Ext.define('MyApp.view.IndexViewController', {
 	extend: 'Ext.app.ViewController',
 	alias: 'controller.index',
 
+	statics: {
+		freqFormatter: function(value) {
+			var a=value, b=Math, c=b.log, d=1e3, e;
+			return (e=c(a)/c(d)|0,a/b.pow(d,e)).toFixed(1).replace(/\.0$/, '') + (e?'KMGTPEZY'[--e]:'') + ' <i class="fa fa-bar-chart"></i>';
+		}
+	},
+
 	config: {
 		preferences: null
 	},

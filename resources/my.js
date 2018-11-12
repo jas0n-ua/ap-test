@@ -19,15 +19,6 @@ Ext.define('MyApp.MyCombo', {
 	}
 });
 
-Ext.apply(Ext.util.Format, {
-
-    myFreq: function (value)
-    {
-        var a=value, b=Math, c=b.log, d=1e3, e;
-		return (e=c(a)/c(d)|0,a/b.pow(d,e)).toFixed(1).replace(/\.0$/, '') + (e?'KMGTPEZY'[--e]:'') + ' <i class="fa fa-bar-chart"></i>';
-    }
-});
-
 MyApp.shared = MyApp.shared || {};
 
 MyApp.shared.seImgMap = {

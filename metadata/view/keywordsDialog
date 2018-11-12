@@ -408,7 +408,6 @@
                                         ],
                                         "dataIndex": "frequency",
                                         "docked": null,
-                                        "formatter": "myFreq",
                                         "width": 85
                                     },
                                     "configAlternates": {
@@ -421,7 +420,37 @@
                                         "formatter": "string"
                                     },
                                     "name": "MyColumn2",
-                                    "designerId": "5efe4bc0-21ed-42f8-85e8-933010cc6989"
+                                    "designerId": "5efe4bc0-21ed-42f8-85e8-933010cc6989",
+                                    "cn": [
+                                        {
+                                            "type": "fixedfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "value",
+                                                    "record",
+                                                    "dataIndex",
+                                                    "cell",
+                                                    "column"
+                                                ],
+                                                "fn": "renderer",
+                                                "implHandler": [
+                                                    "return MyApp.view.IndexViewController.freqFormatter(value);"
+                                                ]
+                                            },
+                                            "configAlternates": {
+                                                "designer|params": "typedarray",
+                                                "fn": "string",
+                                                "implHandler": "code"
+                                            },
+                                            "name": "renderer",
+                                            "designerId": "1ee0027e-5a2f-4f28-8d1d-190b91228cae"
+                                        }
+                                    ]
                                 }
                             ]
                         },

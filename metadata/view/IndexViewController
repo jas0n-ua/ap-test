@@ -181,7 +181,7 @@
                     "\t\t\tsettings[key] = value;",
                     "",
                     "\t\t\tlet store = Ext.data.StoreManager.lookup('searchEngineSettingsDictionary_' + key);",
-                    "\t\t\t",
+                    "",
                     "\t\t\tlet rec = store ? store.getById(value) : null;",
                     "\t\t\tinfoValues[key] = rec ? rec.get('name') : value;",
                     "",
@@ -482,6 +482,31 @@
             },
             "name": "onSearchEngineRemove",
             "designerId": "7973c4b8-8641-426c-a597-48b6ccb6564d"
+        },
+        {
+            "type": "staticfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "value"
+                ],
+                "fn": "freqFormatter",
+                "implHandler": [
+                    "\t\tvar a=value, b=Math, c=b.log, d=1e3, e;",
+                    "\t\treturn (e=c(a)/c(d)|0,a/b.pow(d,e)).toFixed(1).replace(/\\.0$/, '') + (e?'KMGTPEZY'[--e]:'') + ' <i class=\"fa fa-bar-chart\"></i>';"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "freqFormatter",
+            "designerId": "16985010-1743-43a6-bdd4-adaf2512409f"
         }
     ]
 }

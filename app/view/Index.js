@@ -92,6 +92,9 @@ Ext.define('MyApp.view.Index', {
 						},
 						{
 							xtype: 'gridcolumn',
+							renderer: function(value, record, dataIndex, cell, column) {
+								return MyApp.view.IndexViewController.freqFormatter(value);
+							},
 							width: 85,
 							align: 'right',
 							cell: {
@@ -99,8 +102,7 @@ Ext.define('MyApp.view.Index', {
 								encodeHtml: false,
 								bodyStyle: 'font-size: small;'
 							},
-							dataIndex: 'frequency',
-							formatter: 'myFreq'
+							dataIndex: 'frequency'
 						},
 						{
 							xtype: 'gridcolumn',
